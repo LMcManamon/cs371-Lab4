@@ -82,6 +82,22 @@ public class TextModActivity extends ActionBarActivity {
                 editText.setText("");
             }
         });
+
+        Button upperCaseButton=(Button)findViewById(R.id.button6);
+        upperCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toUpperCase());
+            }
+        });
+
+        Button lowerCaseButton=(Button)findViewById(R.id.button7);
+        lowerCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toLowerCase());
+            }
+        });
     }
 
     /**
