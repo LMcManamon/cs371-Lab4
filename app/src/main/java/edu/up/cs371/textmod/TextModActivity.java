@@ -16,6 +16,8 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
@@ -73,6 +75,13 @@ public class TextModActivity extends ActionBarActivity {
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+        Button clearEditText=(Button)findViewById(R.id.button);
+        clearEditText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText("");
+            }
+        });
     }
 
     /**
@@ -102,6 +111,8 @@ public class TextModActivity extends ActionBarActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
+
 
     /**
      * class that handles our spinner's selection events
