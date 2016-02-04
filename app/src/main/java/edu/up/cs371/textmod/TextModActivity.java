@@ -24,7 +24,7 @@ import android.widget.Spinner;
 import java.util.ArrayList;
 
 
-//Rando commoent
+//Rando comment
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
     protected EditText editText;
     protected Button button2 = null;
