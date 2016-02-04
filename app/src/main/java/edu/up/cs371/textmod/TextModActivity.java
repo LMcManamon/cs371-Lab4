@@ -10,6 +10,7 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
+import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -22,6 +23,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
+public class TextModActivity extends ActionBarActivity {
 
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
@@ -33,6 +35,11 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
 
     // instance variables containing widgets
     private ImageView imageView; // the view that shows the image
+
+    //instance variables for reversing the textedit
+    protected EditText textField = null;
+    protected Button reverseButton = null;
+
 
     /**
      * @see android.app.Activity#onCreate(android.os.Bundle)
@@ -82,6 +89,36 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         // define a listener for the spinner
         spinner.setOnItemSelectedListener(new MySpinnerListener());
 
+
+        // making a listener for the reverse button
+        reverseButton = (Button)findViewById(R.id.button4);
+        reverseButton.setOnClickListener(this);
+        textField = (EditText)findViewById(R.id.editText);
+
+
+        Button clearEditText=(Button)findViewById(R.id.button);
+        clearEditText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText("");
+            }
+        });
+
+        Button upperCaseButton=(Button)findViewById(R.id.button6);
+        upperCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toUpperCase());
+            }
+        });
+
+        Button lowerCaseButton=(Button)findViewById(R.id.button7);
+        lowerCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toLowerCase());
+            }
+        });
     }
 
     /**
@@ -112,6 +149,20 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         return super.onOptionsItemSelected(item);
     }
 
+
+    @Override
+    public void onClick(View v) {
+        if(v.getId() == R.id.button4 ){
+
+            // reverses the text
+            int i;
+            String reverseText = textField.getText().toString();
+            String newText = new StringBuilder(reverseText).reverse().toString();
+            textField.setText(newText);
+
+        }
+    }
+
     /**
      * class that handles our spinner's selection events
      */
@@ -126,7 +177,6 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
-
         }
 
         /**
