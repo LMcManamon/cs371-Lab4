@@ -23,7 +23,7 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+
 
 
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
@@ -150,18 +150,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
 
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.button4 ){
 
-            // reverses the text
-            int i;
-            String reverseText = textField.getText().toString();
-            String newText = new StringBuilder(reverseText).reverse().toString();
-            textField.setText(newText);
-
-        }
-    }
 
     /**
      * class that handles our spinner's selection events
@@ -190,9 +179,19 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
     public void onClick(View v){
         if (v.getId() == R.id.button2) {
+
             Spinner spinner = (Spinner)findViewById(R.id.spinner);
             editText.setText(editText.getText() + spinner.getSelectedItem().toString());
             }
+        if(v.getId() == R.id.button4 ){
+
+            // reverses the text
+            int i;
+            String reverseText = textField.getText().toString();
+            String newText = new StringBuilder(reverseText).reverse().toString();
+            textField.setText(newText);
+
+        }
         }
 
 }
