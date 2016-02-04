@@ -118,6 +118,14 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                 editText.setText(editText.getText().toString().toLowerCase());
         }
         });
+
+        Button removeSpaces=(Button)findViewById(R.id.removeSpaces);
+        removeSpaces.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().replaceAll("\\s+", ""));
+            }
+        });
     }
 
     /**
