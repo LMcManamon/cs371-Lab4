@@ -25,7 +25,6 @@ import java.util.ArrayList;
 
 
 //Rando commoent
-
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
     protected EditText editText;
     protected Button button2 = null;
