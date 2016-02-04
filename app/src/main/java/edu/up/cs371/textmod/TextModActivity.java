@@ -16,11 +16,17 @@ import android.view.View;
 import android.widget.AdapterView;
 import android.widget.AdapterView.OnItemSelectedListener;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity {
+
+
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+    protected EditText editText;
+    protected Button button2 = null;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -38,9 +44,12 @@ public class TextModActivity extends ActionBarActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
+
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-
+        editText = (EditText)findViewById(R.id.editText);
+        button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(this);
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -117,6 +126,7 @@ public class TextModActivity extends ActionBarActivity {
                                    int position, long id) {
             // set the image to the one corresponding to the index selected by the spinner
             imageView.setImageBitmap(images.get(position));
+
         }
 
         /**
@@ -128,4 +138,11 @@ public class TextModActivity extends ActionBarActivity {
             // your code here
         }
     }
+    public void onClick(View v){
+        if (v.getId() == R.id.button2) {
+            Spinner spinner = (Spinner)findViewById(R.id.spinner);
+            editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+            }
+        }
+
 }
