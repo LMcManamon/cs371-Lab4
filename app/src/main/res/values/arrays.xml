@@ -9,6 +9,7 @@
         <item>@mipmap/kitten</item>
         <item>@mipmap/nuxoll</item>
         <item>@mipmap/vegdahl</item>
+        <item>@mipmap/jolteon</item>
         <item>@mipmap/diglett</item>
         <item>@mipmap/sandshrew</item>
     </array>
@@ -17,6 +18,7 @@
         <item>Sleeping Kitten</item>
         <item>Dr. Andrew Nuxoll</item>
         <item>Dr. Steven Vegdahl</item>
+        <item>Jolteon</item>
         <item>Diglett</item>
         <item>Sandshrew</item>
     </string-array>
