@@ -10,7 +10,6 @@ import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
 import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.text.Editable;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
@@ -28,6 +27,7 @@ import java.util.ArrayList;
 public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
     protected EditText editText;
     protected Button button2 = null;
+    protected Button randomize = null;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -118,6 +118,10 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
                 editText.setText(editText.getText().toString().toLowerCase());
         }
         });
+
+        randomize = (Button)findViewById(R.id.randomize);
+        randomize.setOnClickListener(this);
+
     }
 
     /**
@@ -185,12 +189,23 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         if(v.getId() == R.id.button4 ){
 
             // reverses the text
-            int i;
             String reverseText = textField.getText().toString();
             String newText = new StringBuilder(reverseText).reverse().toString();
             textField.setText(newText);
-
         }
+
+        if(v.getId() == R.id.randomize){
+            // pick a random spot to put text on the end of the string.
+            int random = (int)(Math.random() * 10);
+
+            String editText = textField.getText().toString();
+            String front = editText.substring(0,random);
+            String end = editText.substring(random, (editText.length()));
+
+            editText = end.concat(front);
+            textField.setText(editText);
+        }
+    // add if so random cannot be bigger than text length
         }
 
 }

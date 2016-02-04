@@ -141,6 +141,16 @@
         android:layout_weight="1"/>
 
 
+    <Button
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Randomize"
+        android:id="@+id/randomize"
+        android:layout_gravity="center_horizontal"
+        android:textSize="@dimen/button_font_size"
+        android:background="@color/button_color"
+        android:textColor="@color/button_text_color" />
+
     <LinearLayout
         android:orientation="horizontal"
         android:layout_width="match_parent"
