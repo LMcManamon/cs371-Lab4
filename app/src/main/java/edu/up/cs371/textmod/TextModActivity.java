@@ -38,6 +38,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     //instance variables for reversing the textedit
     protected EditText textField = null;
     protected Button reverseButton = null;
+    protected Button capsAlternating = null;
 
 
     /**
@@ -56,6 +57,8 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         editText = (EditText)findViewById(R.id.editText);
         button2 = (Button)findViewById(R.id.button2);
         button2.setOnClickListener(this);
+        capsAlternating = (Button)findViewById(R.id.capsAlternating);
+        capsAlternating.setOnClickListener(this);
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -191,6 +194,27 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             textField.setText(newText);
 
         }
+        if(v.getId() == R.id.capsAlternating) {
+            int i = 0;
+            int length = editText.getText().length();
+            String str = editText.getText().toString();
+            char[] letters = str.toCharArray();
+            char ch;
+            for(i=0; i<length;i++ );
+                {
+                     if(i%2 == 0) {
+                        ch = Character.toLowerCase(letters[i]);
+                         letters[i] = ch;
+                     }
+                    else {
+                        ch = Character.toUpperCase(letters[i]);
+                         letters[i] = ch;
+                     }
+                }
+            editText.setText(new String(letters));
+            }
         }
+
+
 
 }
