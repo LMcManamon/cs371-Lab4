@@ -23,7 +23,12 @@ import android.widget.ImageView;
 import android.widget.Spinner;
 import java.util.ArrayList;
 
-public class TextModActivity extends ActionBarActivity implements View.OnClickListener {
+
+
+
+public class TextModActivity extends ActionBarActivity implements View.OnClickListener{
+    protected EditText editText;
+    protected Button button2 = null;
 
     // array-list that contains our images to display
     private ArrayList<Bitmap> images;
@@ -46,9 +51,12 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_text_mod);
 
+
         // set instance variables for our widgets
         imageView = (ImageView)findViewById(R.id.imageView);
-
+        editText = (EditText)findViewById(R.id.editText);
+        button2 = (Button)findViewById(R.id.button2);
+        button2.setOnClickListener(this);
         // Set up the spinner so that it shows the names in the spinner array resources
         //
         // get spinner object
@@ -142,18 +150,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
     }
 
 
-    @Override
-    public void onClick(View v) {
-        if(v.getId() == R.id.button4 ){
 
-            // reverses the text
-            int i;
-            String reverseText = textField.getText().toString();
-            String newText = new StringBuilder(reverseText).reverse().toString();
-            textField.setText(newText);
-
-        }
-    }
 
     /**
      * class that handles our spinner's selection events
@@ -180,4 +177,21 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             // your code here
         }
     }
+    public void onClick(View v){
+        if (v.getId() == R.id.button2) {
+
+            Spinner spinner = (Spinner)findViewById(R.id.spinner);
+            editText.setText(editText.getText() + spinner.getSelectedItem().toString());
+            }
+        if(v.getId() == R.id.button4 ){
+
+            // reverses the text
+            int i;
+            String reverseText = textField.getText().toString();
+            String newText = new StringBuilder(reverseText).reverse().toString();
+            textField.setText(newText);
+
+        }
+        }
+
 }
