@@ -5,7 +5,6 @@ package edu.up.cs371.textmod;
  *
  * Allow text to be modified in simple ways with button-presses.
  */
-import android.content.DialogInterface;
 import android.content.res.TypedArray;
 import android.graphics.Bitmap;
 import android.graphics.BitmapFactory;
@@ -89,6 +88,29 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
         textField = (EditText)findViewById(R.id.editText);
 
 
+        Button clearEditText=(Button)findViewById(R.id.button);
+        clearEditText.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText("");
+            }
+        });
+
+        Button upperCaseButton=(Button)findViewById(R.id.button6);
+        upperCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toUpperCase());
+            }
+        });
+
+        Button lowerCaseButton=(Button)findViewById(R.id.button7);
+        lowerCaseButton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                EditText editText = (EditText) findViewById(R.id.editText);
+                editText.setText(editText.getText().toString().toLowerCase());
+            }
+        });
     }
 
     /**
