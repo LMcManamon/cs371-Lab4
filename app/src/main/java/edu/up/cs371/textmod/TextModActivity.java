@@ -117,7 +117,7 @@ public class TextModActivity extends ActionBarActivity implements View.OnClickLi
             public void onClick(View v) {
                 EditText editText = (EditText) findViewById(R.id.editText);
                 editText.setText(editText.getText().toString().toLowerCase());
-            }
+        }
         });
     }
 
